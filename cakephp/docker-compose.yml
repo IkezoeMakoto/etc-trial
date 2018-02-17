@@ -1,0 +1,9 @@
+version: "3"
+services:
+  php:
+    build: ./php
+    container_name: ${PREFIX_NAME}_php
+    entrypoint:
+      - ''
+    command:
+      - /bin/sh

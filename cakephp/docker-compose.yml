@@ -4,8 +4,6 @@ services:
     build: ./test_app
     container_name: ${PREFIX_NAME}_php
     ports:
-      - 10080:80
+      - ${HTTP_PORT}:80
     volumes:
       - ./test_app:/app
-#    env_file:
-#      - ./php/.env

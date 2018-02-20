@@ -1,4 +1,4 @@
-.PHONY: up down
+.PHONY: up down clean
 
 env:
 	cp .env.example .env
@@ -9,3 +9,6 @@ up:
 down:
 	docker-compose down
 
+
+clean:
+	docker-compose system prune

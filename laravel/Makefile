@@ -4,7 +4,7 @@
 	@cp .env.example .env
 
 up: .env
-	docker-compose up --force-recreate -d
+	docker-compose up --build --force-recreate -d
 
 down:
 	docker-compose down

@@ -28,4 +28,4 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 
 WORKDIR /app
 
-CMD php artisan serve --host 0.0.0.0 --port 80
+CMD make dev/server

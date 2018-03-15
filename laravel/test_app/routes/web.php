@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ArticleController@index');
+
+// create
+Route::get('create', 'ArticleController@create');
+Route::post('create', 'ArticleController@store');
+
+// update
+Route::get('edit/{id}', 'ArticleController@edit');
+Route::post('edit', 'ArticleController@update');

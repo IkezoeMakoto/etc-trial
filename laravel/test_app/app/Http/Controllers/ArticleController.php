@@ -66,4 +66,25 @@ class ArticleController extends Controller
 
         return view('article.update');
     }
+
+    /**
+     * @param Request $request
+     * @param         $id
+     *
+     * @return mixed
+     */
+    public function show(Request $request, $id) {
+        $article = Article::find($id);
+        return view('article.show', ['article' => $article]);
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return mixed
+     */
+    public function delete(Request $request) {
+        Article::destroy($request->id);
+        return view('article.delete');
+    }
 }

@@ -20,3 +20,8 @@ Route::post('create', 'ArticleController@store');
 // update
 Route::get('edit/{id}', 'ArticleController@edit');
 Route::post('edit', 'ArticleController@update');
+
+
+// delete
+Route::get('delete/{id}', 'ArticleController@show');
+Route::post('delete', 'ArticleController@delete');

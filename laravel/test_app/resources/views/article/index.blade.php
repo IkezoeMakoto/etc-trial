@@ -17,6 +17,7 @@
           <h6 class="card-subtitle mb-2 text-muted">{{ $article->updated_at }}</h6>
           <p class="card-text">{!! nl2br($article->body) !!}</p>
           <a href="/edit/{{ $article->id }}" class="card-link">修正</a>
+          <a href="/delete/{{ $article->id }}" class="card-link">削除</a>
         </div>
       </div>
     @endforeach

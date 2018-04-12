@@ -1,0 +1,9 @@
+# dashbord.ymlから起動
+kubectl apply -f dashboard.yaml --record
+# 確認
+kubectl get deploy,po,svc -n kube-system
+# proxyして画面から確認
+kubectl proxy
+
+# Refs
+https://qiita.com/uni-3/items/a4f2afa0973bfc35b498

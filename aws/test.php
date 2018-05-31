@@ -22,7 +22,7 @@ try {
         'QueueUrl' => $queueUrl,
         'WaitTimeSeconds' => 0,
         // @see https://docs.aws.amazon.com/ja_jp/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html#configuring-visibility-timeout
-        // ↓ ここが WaitTimeSeconds 以下だと削除できない
+        // ↓ ここが短すぎる場合削除できない（他のクライアントから見えるようになる = 削除できない）
         //'VisibilityTimeout' => 0
     ));
 

@@ -17,8 +17,6 @@ WORKDIR /go/src/github.com/IkezoeMakoto/etc-trial/golang/app
 ARG ENV=local
 RUN make .env
 
-CMD make up
+RUN make go/build
 
-#RUN make setup
-
-#RUN make build
+CMD make go/exec

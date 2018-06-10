@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/IkezoeMakoto/etc-trial/golang/app/service"
+)
 
 func main() {
-	fmt.Println("hello world!");
+	// todo: csv から取得
+	urls := []string{"http://ua-detector.zoe.tools", "https://coin-step.com"}
+
+	s := service.NewCheckStatusService(urls)
+	statuses := s.GetAllStatus()
 }

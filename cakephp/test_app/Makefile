@@ -1,7 +1,7 @@
 .PHONY: server-run
 
 vendor:
-    composer install
+	composer install
 
 server-run: vendor
-    bin/cake server -H 0.0.0.0 -p 10080
+	bin/cake server -H 0.0.0.0 -p 10080

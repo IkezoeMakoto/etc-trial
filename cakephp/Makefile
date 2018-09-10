@@ -10,7 +10,7 @@ down:
 	docker-compose down
 
 rerun:
-    docker-compose restart php
+	docker-compose restart php
 
 clean:
 	docker-compose system prune

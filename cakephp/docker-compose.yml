@@ -1,9 +1,34 @@
 version: "3"
 services:
   php:
-    build: ./test_app
+    build:
+      context: ./test_app
+      args:
+        USER_ID: "${USER_ID}"
+        GROUP_ID: "${GROUP_ID}"
     container_name: ${PREFIX_NAME}_php
     ports:
-      - ${HTTP_PORT}:80
+      - ${HTTP_PORT}:10080
     volumes:
-      - ./test_app:/app
+      - ./test_app:/home/developer/app
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+
+  database:
+    build:
+      context: ./database
+      args:
+        USER_ID: "${USER_ID}"
+        GROUP_ID: "${GROUP_ID}"
+    container_name: ${PREFIX_NAME}_database
+    volumes:
+    - database:/var/lib/mysql
+    ports:
+    - "${MYSQL_PORT}:3306"
+    env_file:
+    - ./.env
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 0
+
+volumes:
+  database:

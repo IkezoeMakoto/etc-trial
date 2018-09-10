@@ -1,15 +1,26 @@
 version: "3"
 services:
   php:
-    build: ./test_app
+    build:
+      context: ./test_app
+      args:
+        USER_ID: "${USER_ID}"
+        GROUP_ID: "${GROUP_ID}"
     container_name: ${PREFIX_NAME}_php
     ports:
       - ${HTTP_PORT}:80
     volumes:
       - ./test_app:/app
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+
   database:
     build:
       context: ./database
+      args:
+        USER_ID: "${USER_ID}"
+        GROUP_ID: "${GROUP_ID}"
+    container_name: ${PREFIX_NAME}_php
     volumes:
     - database:/var/lib/mysql
     ports:

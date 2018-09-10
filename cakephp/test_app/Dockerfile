@@ -12,6 +12,7 @@ ARG GROUP_ID
 
 RUN groupadd -g $GROUP_ID -o developer &&\
     useradd -m developer -u $USER_ID -g $GROUP_ID
+USER developer
 
 # php拡張
 RUN docker-php-ext-install pdo_mysql mysqli mbstring
@@ -34,10 +35,8 @@ RUN apk add --update --no-cache $PHPIZE_DEPS \
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
-WORKDIR /app
+WORKDIR /home/developer/app
 
-COPY ./ app
-
-USER developer
+COPY ./ /home/developer/app
 
 CMD make server-runim

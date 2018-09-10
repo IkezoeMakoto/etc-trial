@@ -10,7 +10,7 @@ services:
     ports:
       - ${HTTP_PORT}:10080
     volumes:
-      - ./test_app:/app
+      - ./test_app:/home/developer/app
     environment:
       COMPOSER_ALLOW_SUPERUSER: 1
 

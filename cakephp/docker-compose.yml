@@ -8,7 +8,7 @@ services:
         GROUP_ID: "${GROUP_ID}"
     container_name: ${PREFIX_NAME}_php
     ports:
-      - ${HTTP_PORT}:80
+      - ${HTTP_PORT}:10080
     volumes:
       - ./test_app:/app
     environment:
@@ -20,7 +20,7 @@ services:
       args:
         USER_ID: "${USER_ID}"
         GROUP_ID: "${GROUP_ID}"
-    container_name: ${PREFIX_NAME}_php
+    container_name: ${PREFIX_NAME}_database
     volumes:
     - database:/var/lib/mysql
     ports:

@@ -8,8 +8,6 @@ ARG GROUP_ID
 RUN groupadd -g $GROUP_ID -o developer &&\
     useradd -m developer -u $USER_ID -g $GROUP_ID
 
-USER developer
-
 # 必要そうなやつ
 RUN apk update && \
     apk add make git && \
@@ -39,5 +37,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 WORKDIR /app
 
 COPY ./ app
+
+USER developer
 
 CMD make server-run

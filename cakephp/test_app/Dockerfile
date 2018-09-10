@@ -30,4 +30,6 @@ RUN curl -sS https://getcomposer.org/installer | php && \
 
 WORKDIR /app
 
-CMD ["bin/cake", "server", "-H", "0.0.0.0", "-p", "80"]
+COPY ./ app
+
+CMD make server-run

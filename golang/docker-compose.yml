@@ -3,3 +3,5 @@ services:
   app:
     build: ./app
     container_name: ${PREFIX_NAME}_app
+    volumes:
+      -  ./app:/go/src/github.com/IkezoeMakoto/etc-trial/golang/app

@@ -35,7 +35,7 @@ class Locker
      * @param int $targetNum
      * @return bool
      */
-    public function isDivision(int $targetNum)
+    public function isDivision(int $targetNum): bool
     {
         return $this->number % $targetNum === 0;
     }
@@ -53,9 +53,13 @@ class Locker
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string 
     {
-        return $this->number . ':' . $this->isOpen;
+        $status = 'close';
+        if ($this->isOpen) {
+            $status = 'open';
+        }
+        return $this->number . ':' . $status;
     }
 }
 
@@ -66,6 +70,10 @@ class Lockers
     /** @var array $item */
     protected $items;
 
+    /**
+     * Lockers constructor.
+     * @param int $limit
+     */
     public function __construct(int $limit)
     {
         $this->limit = $limit;

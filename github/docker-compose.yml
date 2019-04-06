@@ -1,0 +1,9 @@
+version: "3"
+services:
+  php:
+    build: ./services/php
+    ports:
+      - "${HTTP_PORT}:80"
+      - "${HTTPS_PORT}:443"
+    volumes:
+      - "./services/php/app:/var/www/html"

@@ -7,6 +7,7 @@ services:
       - "${HTTP_PORT}:80"
     volumes: 
       - ./web/etc/nginx/sites-enabled:/etc/nginx/sites-enabled
+      - ./wordpress/wp-content:/var/www/html/wp-content
       - wp-data:/var/www/html
     depends_on: 
       - wp

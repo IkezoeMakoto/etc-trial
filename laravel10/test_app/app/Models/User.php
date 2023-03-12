@@ -53,7 +53,9 @@ class User extends Authenticatable
         // NOTE: 暗号化・複合する
         return Attribute::make(
             get: fn (string $text) => decrypt($text),
-            set: fn (int $number) => encrypt($number)
+            // setする際に元と同じ値の場合はencryptし直さない
+            set: fn (int $number) => $this->getOriginal('secret_number') === $number
+                ? $this->attributes['secret_number'] : encrypt($number)
         );
     }
 }
